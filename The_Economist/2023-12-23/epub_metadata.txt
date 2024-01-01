@@ -1,0 +1,178 @@
+[migrations] started
+[migrations] no migrations found
+usermod: no changes
+───────────────────────────────────────
+
+      ██╗     ███████╗██╗ ██████╗ 
+      ██║     ██╔════╝██║██╔═══██╗
+      ██║     ███████╗██║██║   ██║
+      ██║     ╚════██║██║██║   ██║
+      ███████╗███████║██║╚██████╔╝
+      ╚══════╝╚══════╝╚═╝ ╚═════╝ 
+
+   Brought to you by linuxserver.io
+───────────────────────────────────────
+
+To support LSIO projects visit:
+https://www.linuxserver.io/donate/
+
+───────────────────────────────────────
+GID/UID
+───────────────────────────────────────
+
+User UID:    911
+User GID:    911
+───────────────────────────────────────
+
+[custom-init] No custom files found, skipping...
+[ls.io-init] done.
+Obt-Message: Xinerama extension is not present on the server
+Title               : The Economist [Dec 23rd 2023]
+Author(s)           : calibre [calibre]
+Publisher           : calibre
+Book Producer       : calibre (7.2.0) [https://calibre-ebook.com]
+Languages           : eng
+Published           : 2023-12-23T00:00:00+00:00
+Comments            : Articles in this issue:
+
+The world this year 2023
+
+KAL’s cartoon
+
+This week’s cover
+
+How to detoxify the politics of migration
+
+The US Navy confronts a new Suez crisis
+
+Economists had a dreadful 2023
+
+The Economist’s country of the year for 2023
+
+Technology is helping Santa Claus come to town more efficiently
+
+Letters to the editor
+
+A majority of congressmen want more military aid for Ukraine
+
+Newark may have found a fix for chronic homelessness
+
+Louisiana Creole is enjoying a modest revival
+
+Why Donald Trump is gaining ground with young voters
+
+For a second time Chileans reject a new constitution. Now what?
+
+The Mexican president’s latest boondoggle officially opens
+
+China is backing opposing sides in Myanmar’s civil war
+
+Why are Indians shunning the country’s shiny new metro lines?
+
+How to entice Japanese couples to have babies
+
+China’s quest to become a robot superpower
+
+The unfair trial of Jimmy Lai begins in Hong Kong
+
+Why China’s rulers fear Genghis Khan
+
+Attacks on shipping threaten to upend peace talks in Yemen
+
+Israel isn’t sure what to do about the hostages in Gaza
+
+The plight of Christians in Bethlehem and Jerusalem predates the latest Gaza war
+
+A supposed haven in Sudan falls to a genocidal militia
+
+For Congo’s next president, winning may be the easy part
+
+The head of the hard-right Alternative for Germany is riding high
+
+Ukraine’s army is struggling to find good recruits
+
+Why French women no longer wear high heels
+
+Europe is struggling to find the money
+
+At Christmas, Europeans look less united than ever
+
+The parable of Andy Street, the mayor for the West Midlands
+
+How British voters remove misbehaving MPs
+
+The British army mulls allowing beards
+
+Inside the banter-industrial complex
+
+Many Trump supporters believe God has chosen him to rule
+
+A tale of penguins and prejudice is a parable of modern America
+
+What the journey of a pair of shoes reveals about capitalism
+
+A short history of tractors in English
+
+Millions of Chinese are venturing to the beach for the first time
+
+How the young Winston Churchill escaped from a prisoner-of-war camp
+
+Where capitalism and conservation meet
+
+Why Tamil movie heroes become politicians
+
+Why more women are picking up power tools
+
+What responsibilities do individuals have to stop climate change?
+
+The best sailors in the world
+
+Oceania’s wayfinding skills
+
+The life-giving, death-dealing power of corn
+
+Why economists love “Robinson Crusoe”
+
+Meet the boffins and buccaneers drilling for hydrogen
+
+Inside the last true political machine in America
+
+AI is stalking the last lions of Hollywood
+
+Big tech and geopolitics are reshaping the internet’s plumbing
+
+How an ugly marital feud could change Indian business
+
+Attacks on shipping in the Red Sea are a blow to global trade
+
+The return of The Economist’s agony uncle
+
+Can anyone bar Europe do luxury?
+
+Which economy did best in 2023?
+
+Hong Kong’s problems trace back to China. And also America
+
+Can the carbon-offset market be saved?
+
+Why bitcoin is up by almost 150% this year
+
+Where does the modern state come from?
+
+Delivery robots will transform Christmas
+
+Reviving ancient viruses can help fight modern ones
+
+A new type of jet engine could revive supersonic air travel
+
+“’Twas the Night Before Christmas” turns 200 this year
+
+Holding out for a hero in 2024
+
+For a Christmas drink, eggnog does not have a heartwarming history
+
+Economic data, commodities and markets
+
+Eric Freeman hoped to save the Gloucestershire of old
+
+Global news and current affairs from a European perspective. Best downloaded on Friday mornings (GMT)
