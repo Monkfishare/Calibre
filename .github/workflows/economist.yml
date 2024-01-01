@@ -1,0 +1,61 @@
+name: The Economist Magazine
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  fetch_and_push:
+    runs-on: ubuntu-latest
+    services:
+      docker:
+        image: docker:dind
+        ports:
+          - 2375:2375
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Fetch Latest economist.recipe
+      run: |
+        wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/economist.recipe -O economist.recipe
+
+    - name: Build Docker image
+      run: docker build -t calibre-cli .
+
+    - name: Fetch Magazine and Get Cover
+      run: |
+        docker run --rm -v $PWD:/data calibre-cli \
+          ebook-convert /data/economist.recipe /data/output.epub
+        docker run --rm -v $PWD:/data calibre-cli \
+          ebook-meta /data/output.epub > epub_metadata.txt
+        docker run --rm -v $PWD:/data calibre-cli \
+          ebook-meta /data/output.epub --get-cover=/data/cover.jpg
+
+    - name: Extract and Print Published Date
+      run: |
+        full_published_date=$(grep "Published" epub_metadata.txt | awk -F ":" '{print $2}' | tr -d '[:space:]')
+        date_only=$(echo $full_published_date | cut -d'T' -f1)
+        echo "$date_only" > published_date.txt
+
+    - name: Create The_Economist folder
+      run: |
+        folder_name=$(cat published_date.txt)
+        mkdir -p The_Economist/"$folder_name"
+
+    - name: Move files to The_Economist folder
+      run: |
+        folder_name=$(cat published_date.txt)
+        mv output.epub The_Economist/"$folder_name"/"$folder_name".epub
+        mv cover.jpg The_Economist/"$folder_name"/
+        mv epub_metadata.txt The_Economist/"$folder_name"/
+        mv published_date.txt The_Economist/"$folder_name"/
+
+    - name: Commit and Push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add The_Economist/*
+        git commit -m "Add latest TE in EPUB format with cover and metadata"
+        git push
