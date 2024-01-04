@@ -1,0 +1,150 @@
+[migrations] started
+[migrations] no migrations found
+usermod: no changes
+───────────────────────────────────────
+
+      ██╗     ███████╗██╗ ██████╗ 
+      ██║     ██╔════╝██║██╔═══██╗
+      ██║     ███████╗██║██║   ██║
+      ██║     ╚════██║██║██║   ██║
+      ███████╗███████║██║╚██████╔╝
+      ╚══════╝╚══════╝╚═╝ ╚═════╝ 
+
+   Brought to you by linuxserver.io
+───────────────────────────────────────
+
+To support LSIO projects visit:
+https://www.linuxserver.io/donate/
+
+───────────────────────────────────────
+GID/UID
+───────────────────────────────────────
+
+User UID:    911
+User GID:    911
+───────────────────────────────────────
+
+[custom-init] No custom files found, skipping...
+[ls.io-init] done.
+Obt-Message: Xinerama extension is not present on the server
+Title               : The Economist [Jan 6th 2024]
+Author(s)           : calibre [calibre]
+Publisher           : calibre
+Book Producer       : calibre (7.2.0) [https://calibre-ebook.com]
+Languages           : eng
+Published           : 2024-01-06T00:00:00+00:00
+Comments            : Articles in this issue:
+
+The world this week
+
+KAL’s cartoon
+
+This week’s cover
+
+The man supposed to stop Donald Trump is an unpopular 81-year-old
+
+Binyamin Netanyahu is botching the war. Time to sack him
+
+Is America’s raging bull market exhausted, or taking a breath?
+
+Can India, Indonesia and Saudi Arabia be the next great economies?
+
+How backing Ukraine is key to the West’s security
+
+Letters to the editor
+
+Joe Biden’s chances do not look good. The Democrats have no plan B
+
+A clash over Trump’s disqualification tests the Supreme Court
+
+American pollsters aren’t sure they have fixed the flaws of 2020
+
+The decline and fall of Harvard’s president
+
+The deaths-of-despair narrative is out of date
+
+How to win the culture war
+
+Cuba’s private-sector experiment is faltering
+
+Why is Brazil a hotspot for financial crime?
+
+America braces for Taiwan’s election—and vice versa
+
+Lee Jae-myung, South Korea’s opposition leader, survives a stabbing
+
+A major earthquake in Japan highlights the country’s resilience
+
+The energy transition could make India even more unequal
+
+Anwar Ibrahim, Malaysia’s prime minister, is wasting his opportunity
+
+Xi Jinping and China face another tough year
+
+For China, Taiwan’s elections are a looming crisis
+
+Millions of Chinese have embraced skiing
+
+Another war could break out on the Israel-Lebanon border
+
+War, hunger and disease stalk Gaza’s 2.2m people
+
+Israel’s Supreme Court strikes back
+
+Ethiopia’s gambit for a port is unsettling a volatile region
+
+A thumping win for Tshisekedi in Congo’s election raises eyebrows
+
+A New Year’s interview with Volodymyr Zelensky
+
+Some German Jews say their country goes too far defending Israel
+
+The simmering row over Spanish-language teaching in Catalan schools
+
+On Gaza, Europe is struggling to make its diplomacy matter
+
+Britain needs an unprecedented expansion of the electricity grid
+
+Lawn bowls is in decline. Can it make a comeback?
+
+Older British voters still favour the Tories. Others, not so much
+
+What Britain’s Labour Party thinks of Europe
+
+Welcome to the era of AI nationalism
+
+A new year’s message from the CEO
+
+Meet ACWA Power, Saudi Arabia’s unlikely solar star
+
+Can Sino-Arabian business ties replace Sino-American ones?
+
+The Communist Party wants (a bit) less consumer internet
+
+Meet the shrewdest operators in today’s oil markets
+
+How to get rich in the 21st century
+
+Three surprises that could inflame commodity markets in 2024
+
+Has America really escaped inflation?
+
+American stocks loiter near an all-time high
+
+Robert Solow was an intellectual giant
+
+Moon landing apart, Indian science punches far below its weight
+
+Vast amounts of the world’s shipping sails unseen
+
+Hollywood studios are finding new ways to bring stories to life
+
+Social media’s online diarists have a long lineage
+
+A cultural guide to new year’s resolutions
+
+Economic data, commodities and markets
+
+Gao Yaojie uncovered a scandal that shocked and shamed China
+
+Global news and current affairs from a European perspective. Best downloaded on Friday mornings (GMT)
