@@ -16,6 +16,9 @@ jobs:
         ports:
           - 2375:2375
     steps:
+    - name: Pull latest changes
+      run: git pull origin main
+      
     - name: Checkout code
       uses: actions/checkout@v4
 
