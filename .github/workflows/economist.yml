@@ -1,9 +1,8 @@
 name: The Economist Magazine
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 16 * * 5' # Runs every Friday at midnight in Beijing time (16:00 UTC)
 
 jobs:
   fetch_and_push:
