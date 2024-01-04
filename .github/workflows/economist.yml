@@ -15,12 +15,12 @@ jobs:
         image: docker:dind
         ports:
           - 2375:2375
-    steps:
-    - name: Pull latest changes
-      run: git pull origin main
-      
+    steps:      
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Pull latest changes
+      run: git pull origin main
 
     - name: Fetch Latest economist.recipe
       run: |
