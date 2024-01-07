@@ -1,0 +1,252 @@
+[migrations] started
+[migrations] no migrations found
+usermod: no changes
+───────────────────────────────────────
+
+      ██╗     ███████╗██╗ ██████╗ 
+      ██║     ██╔════╝██║██╔═══██╗
+      ██║     ███████╗██║██║   ██║
+      ██║     ╚════██║██║██║   ██║
+      ███████╗███████║██║╚██████╔╝
+      ╚══════╝╚══════╝╚═╝ ╚═════╝ 
+
+   Brought to you by linuxserver.io
+───────────────────────────────────────
+
+To support LSIO projects visit:
+https://www.linuxserver.io/donate/
+
+───────────────────────────────────────
+GID/UID
+───────────────────────────────────────
+
+User UID:    911
+User GID:    911
+───────────────────────────────────────
+
+[custom-init] No custom files found, skipping...
+[ls.io-init] done.
+Obt-Message: Xinerama extension is not present on the server
+Title               : The World Ahead 2024 [Sun, 07 Jan 2024]
+Author(s)           : calibre [calibre]
+Publisher           : calibre
+Book Producer       : calibre (7.3.0) [https://calibre-ebook.com]
+Languages           : eng
+Published           : 2024-01-07T11:18:05.113560+00:00
+Comments            : Articles in this issue:
+
+Tom Standage’s ten trends to watch in 2024
+
+2024 will be stressful for those who care about liberal democracy
+
+The world must try to break a vicious cycle of insecurity
+
+Don’t give up on peace in the Middle East
+
+Europe needs to step up support for Ukraine
+
+America will need a new vocabulary to discuss its presidential election
+
+Don’t count on a soft landing for the world economy
+
+Generative AI holds much promise for businesses
+
+The green transition will transform the global economic order
+
+The scourge of “stealthflation”
+
+Drawing on 2024
+
+Calendar 2024
+
+What the “superforecasters” predict for major events in 2024
+
+Rishi Sunak and Sir Keir Starmer: who would actually bring change?
+
+Britain’s Conservative Party faces up to its mortality
+
+The outlook for the British economy is better than expected
+
+Which Commonwealth realms might ditch King Charles III?
+
+Britain’s NHS will continue to be a political hot potato in 2024
+
+Rachel Reeves on Labour’s plans for Britain’s finances
+
+The war in Ukraine may be heading for stalemate
+
+Vladimir Putin cannot keep funding his war for ever
+
+How the war in Ukraine is changing the Caucasus
+
+Ukraine has brought Nordic and Baltic countries together
+
+France will unify for sport but not for politics
+
+Europe’s elections pitch centrists against populists, again
+
+Europe’s economies will diverge in new ways
+
+Dara Massicot on dealing with trauma in Ukraine
+
+An unpopularity contest between Joe Biden and Donald Trump looms
+
+The people to watch in 2024 ahead of America’s election
+
+Three economic risks facing America in 2024
+
+With crises in Ukraine and Israel, can America still defend Taiwan?
+
+Can America regulate big tech at all?
+
+Americans are moving to smaller towns in the South
+
+A cricket World Cup comes to America
+
+Extreme heat will bake America’s cities
+
+Niall Ferguson and Condoleezza Rice on the new cold war
+
+Latin America’s left-right divide may be disrupted in 2024
+
+Mexico will elect its first female president
+
+The future is bright for Latin American startups
+
+Latin America could lead the way on green power
+
+Justin Trudeau wants a fourth term as Canada’s prime minister
+
+Narendra Modi’s expected re-election will inspire fear and hope
+
+India has big plans to export its e-government technology
+
+China is watching closely who will be Taiwan’s next president
+
+The Central Asian republics are cultivating new alliances
+
+The energy transition could create unexpected linkages in Asia
+
+Indonesia will elect a new president in February
+
+S. Jaishankar on India’s growing global role
+
+China’s leaders will seek to exploit global divisions in 2024
+
+China’s appeal to poor countries is changing
+
+Xi Jinping will consolidate his power in the coming year
+
+China faces a trade-off between confidence and credibility
+
+Life will get even harder for foreign firms in China
+
+The Chinese Communist Party is struggling to inspire the young
+
+A new balance of power will emerge in the Middle East
+
+The Middle East faces a series of sham elections
+
+The aftermath of the war with Israel will shape Palestinian life
+
+The Middle East’s music business has huge potential
+
+In Iran, 2024 is all about the succession
+
+African countries will scrimp on investment in the coming year
+
+It’s going to get grimmer in the Sahel
+
+South Africa faces a defining election
+
+There is a new scramble for Africa
+
+How to rig an election
+
+Global average temperatures may pass a threshold in 2024
+
+Demand for “green” metals will redraw the global mining map
+
+The BRICS are expanding
+
+Deep-sea miners are ready to get down to work
+
+Nuclear testing could start a new arms race
+
+A global agency to oversee AI is a tall order
+
+How we did with last year’s predictions
+
+Ten business trends for 2024, and forecasts for 15 industries
+
+Metrics to keep an eye on in 2024, from solar cells to superhero movies
+
+Decarbonisation of industrial activities is beginning
+
+Europe needs to build energy islands
+
+Generative AI will go mainstream in 2024
+
+The fight to control the headset market will intensify
+
+Semiconductors will remain central to America’s tech rivalry with China
+
+EVs are poised to make China the world’s biggest car exporter
+
+The fight over remote working will heat up in 2024
+
+Travellers face another year of disruption in 2024
+
+Sluggish investment is holding India back
+
+Self-driving cars are slowly moving forward
+
+Can hi-tech supply chains binding China and America be untangled?
+
+Timnit Gebru says harmful AI systems need to be stopped
+
+Rich-world labour markets will remain strong in 2024
+
+A global minimum tax on firms is finally taking shape
+
+The world’s most indebted countries face another year in limbo
+
+Investors are daring to hope for some stability in the stockmarket
+
+An onslaught of protectionism will change global trade
+
+The roll-out of central-bank digital currencies will slow in 2024
+
+Three commodities could take off in 2024
+
+AI models will become smaller and faster
+
+Expect a bumper year for weight-loss drugs
+
+New medical treatments will use genetic scissors, and other clever tricks
+
+Astronauts are returning to the moon…well, sort of
+
+Get ready for the Great North American eclipse
+
+The next pandemic could hit global crop supplies
+
+Jennifer Holmgren on the circular carbon economy
+
+AI will transform every aspect of Hollywood storytelling
+
+Museums will multiply in 2024
+
+What will be the bestsellers in the coming year?
+
+A spate of new musicals will cheer the spirits in 2024
+
+A new era for west African architecture
+
+Female rock stars are becoming increasingly popular in China
+
+Ten charts compare Joe Biden’s record with Donald Trump’s
+
+Reflections on paperlessness, in the spirit of Ogden Nash
+
+The World Ahead is The Economist’s future-gazing publication. It prepares audiences for what is to come with mind-stretching insights and expert analysis—all in The Economist’s clear, elegant style. Best downloaded in late November.
