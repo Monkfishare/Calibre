@@ -1,11 +1,9 @@
-name: The Economist Magazine
+name: The economist_world_ahead Magazine
 
 on:
   push:
     branches:
       - main
-  schedule:
-    - cron: '0 16 * * 4' # Runs every Thursdays at midnight in Beijing time (16:00 UTC)
 
 jobs:
   fetch_and_push:
@@ -20,11 +18,14 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Pull latest changes
-      run: git pull origin main
+      run: git pull origin main --ff-only
 
-    - name: Fetch Latest economist.recipe
+    - name: Fetch Latest economist_world_ahead.recipe
       run: |
-        wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/economist.recipe -O economist.recipe
+        wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/economist_world_ahead.recipe -O economist_world_ahead.recipe
+
+    - name: Replace cover_url in economist_world_ahead.recipe
+      run: sed -i 's|# self.cover_url = '\''https://mma.prnewswire.com/media/2275620/The_Economist_The_World_Ahead_2024.jpg?w=600'\''|self.cover_url = '\''https://mma.prnewswire.com/media/2275620/The_Economist_The_World_Ahead_2024.jpg?w=600'\''|' economist_world_ahead.recipe
 
     - name: Build Docker image
       run: docker build -t calibre-cli .
@@ -32,7 +33,7 @@ jobs:
     - name: Fetch Magazine and Get Cover
       run: |
         docker run --rm -v $PWD:/data calibre-cli \
-          ebook-convert /data/economist.recipe /data/output.epub
+          ebook-convert /data/economist_world_ahead.recipe /data/output.epub
         docker run --rm -v $PWD:/data calibre-cli \
           ebook-meta /data/output.epub > epub_metadata.txt
         docker run --rm -v $PWD:/data calibre-cli \
@@ -44,23 +45,23 @@ jobs:
         date_only=$(echo $full_published_date | cut -d'T' -f1)
         echo "$date_only" > published_date.txt
 
-    - name: Create The_Economist folder
+    - name: Create The_Economist/The_World_Ahead folder
       run: |
         folder_name=$(cat published_date.txt)
-        mkdir -p The_Economist/"$folder_name"
+        mkdir -p The_Economist/The_World_Ahead/2024
 
-    - name: Move files to The_Economist folder
+    - name: Move files to The_Economist/The_World_Ahead folder
       run: |
         folder_name=$(cat published_date.txt)
-        mv output.epub The_Economist/"$folder_name"/"$folder_name".epub
-        mv cover.jpg The_Economist/"$folder_name"/
-        mv epub_metadata.txt The_Economist/"$folder_name"/
-        mv published_date.txt The_Economist/"$folder_name"/
+        mv output.epub "The_Economist/The_World_Ahead/2024/The World Ahead 2024.epub"
+        mv cover.jpg The_Economist/The_World_Ahead/2024/
+        mv epub_metadata.txt The_Economist/The_World_Ahead/2024/
+        mv published_date.txt The_Economist/The_World_Ahead/2024/
 
     - name: Commit and Push changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add The_Economist/*
-        git commit -m "Add latest TE in EPUB format with cover and metadata"
+        git add The_Economist/The_World_Ahead/2024/*
+        git commit -m "Add The_Economist_World_Ahead_2024 in EPUB format with cover and metadata"
         git push
