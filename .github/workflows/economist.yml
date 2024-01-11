@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '30 15 * * 4' # Runs every Thursdays at midnight in Beijing time (15:30 UTC)
+    - cron: '20 15 * * 4' # Runs every Thursdays at midnight in Beijing time (15:30 UTC)
 
 jobs:
   fetch_and_push:
