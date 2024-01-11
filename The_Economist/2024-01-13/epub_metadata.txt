@@ -1,0 +1,202 @@
+[migrations] started
+[migrations] no migrations found
+usermod: no changes
+───────────────────────────────────────
+
+      ██╗     ███████╗██╗ ██████╗ 
+      ██║     ██╔════╝██║██╔═══██╗
+      ██║     ███████╗██║██║   ██║
+      ██║     ╚════██║██║██║   ██║
+      ███████╗███████║██║╚██████╔╝
+      ╚══════╝╚══════╝╚═╝ ╚═════╝ 
+
+   Brought to you by linuxserver.io
+───────────────────────────────────────
+
+To support LSIO projects visit:
+https://www.linuxserver.io/donate/
+
+───────────────────────────────────────
+GID/UID
+───────────────────────────────────────
+
+User UID:    911
+User GID:    911
+───────────────────────────────────────
+
+[custom-init] No custom files found, skipping...
+[ls.io-init] done.
+Obt-Message: Xinerama extension is not present on the server
+Title               : The Economist [Jan 13th 2024]
+Author(s)           : calibre [calibre]
+Publisher           : calibre
+Book Producer       : calibre (7.3.0) [https://calibre-ebook.com]
+Languages           : eng
+Published           : 2024-01-13T00:00:00+00:00
+Comments            : Articles in this issue:
+
+Politics
+
+Business
+
+KAL’s cartoon
+
+An influx of Chinese cars is terrifying the West
+
+Mayday! War stalks the world’s oceans
+
+Why Olaf Scholz is no Angela Merkel
+
+How to cut through the cacophony over DEI
+
+“No-strings giving” is transforming philanthropy
+
+Letters to the editor
+
+Questions about China dominate Taiwanese elections, says Nathan Batto
+
+Western firms are quaking as China’s electric-car industry speeds up
+
+Donald Trump’s Iowa operation suggests his campaign will be formidable
+
+The US Supreme Court is primed to recalibrate government power
+
+Joe Biden’s disappearing defence secretary
+
+A lawsuit in New York may shake things up at the NRA
+
+Broadway is struggling to find its rhythm after the pandemic
+
+Ron DeSantis has some lessons for America’s politicians
+
+How Ecuador became Latin America’s deadliest country
+
+The dwindling of the Panama Canal boosts rival trade routes
+
+Guatemala’s new president promises a better sort of government
+
+South-East Asia learns how to deal with China
+
+Women’s (in)justice in India
+
+India bridles at China’s growing presence in South Asia
+
+Bangladesh’s prime minister, Sheikh Hasina, wins a fifth term
+
+The favourite in Indonesia’s presidential election has a sordid past
+
+Xi Jinping is struggling to stamp out graft in the PLA
+
+China heaps pressure on Taiwan ahead of a big election
+
+A comical effort by China’s intelligence agency
+
+Nostalgia for China’s boom years drives a TV hit
+
+Just how bad is it in Gaza?
+
+Under a real peace deal, Gaza could be an intercontinental crossroads
+
+Israel has yet to destroy even half of Gaza’s tunnels
+
+South Africa’s support for the Palestinian cause has deep roots
+
+Can satellite cities help solve Africa’s urbanisation challenges?
+
+Who is in charge of Europe?
+
+The president appoints modern France’s youngest prime minister
+
+Germany’s new party on the far left may eat into the far right
+
+Ukrainian stand-up comedy has seen a renaissance during the war
+
+How the spirit of Jacques Delors might be rekindled
+
+The housing ladder, 1950-2005
+
+A typically British way to smooth handovers of power
+
+Britain’s worst miscarriage of justice sparks outrage at last
+
+Britain’s health-care system looks rather as it did in the 1930s
+
+Wales wants to be more like Scandinavia
+
+Counting Britain’s beauties and leech bleeders
+
+Keir Starmer, Reform UK and Britain’s populist paradox
+
+Welcome to the new era of global sea power
+
+The super-rich are trying new approaches to philanthropy
+
+No-strings philanthropy is giving charities more decision-making power
+
+GiveDirectly does what it says on the tin
+
+A growing industry is emerging to make philanthropy simpler
+
+Philanthropy in Asia is becoming more professional
+
+The “effective altruism” movement is louder than it is large
+
+The future of philanthropy will involve a mix of different approaches
+
+Sources and acknowledgments
+
+Does Europe at last have an answer to Silicon Valley?
+
+German farmers and train drivers are scaring Germany’s bosses
+
+Saudi Arabia wants to be the Saudi Arabia of minerals
+
+Is Harvard Business School too woke?
+
+Faulty door plugs open old wounds at Boeing
+
+When your colleagues are also your rivals
+
+AI can transform education for the better
+
+Xi Jinping risks setting off another trade war
+
+A guide to the Chinese Communist Party’s economic jargon
+
+Will spiking shipping costs cause inflation to surge?
+
+Bill Ackman provides a lesson in activist investing
+
+What happened to the artificial-intelligence investment boom?
+
+Has Team Transitory really won America’s inflation debate?
+
+Heart attacks, strokes, dementia—can Biden and Trump beat the odds?
+
+Simin Vazire hopes to fix psychology’s credibility crisis
+
+2023 was the hottest year ever
+
+Wind turbines are friendlier to birds than oil-and-gas drilling
+
+An American rocket has a fine debut; not so the Moon lander on board
+
+Inside the hunt for Ukraine’s stolen art
+
+Two Arab-Israeli musical initiatives reckon with the war in Gaza
+
+What adroit small countries can teach the rest of the world
+
+A new book paints a damning portrait of America’s evangelicals
+
+Marvel seems to be losing its powers
+
+Economic data, commodities and markets
+
+How the Iowa caucuses are changing in 2024
+
+Can Ukrainian drone attacks hurt Russia?
+
+Mike Sadler guided the first SAS raiders through the North African desert
+
+Global news and current affairs from a European perspective. Best downloaded on Friday mornings (GMT)
