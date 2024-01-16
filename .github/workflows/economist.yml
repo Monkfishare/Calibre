@@ -34,15 +34,20 @@ jobs:
         docker run --rm -v $PWD:/data calibre-cli \
           ebook-convert /data/economist.recipe /data/output.epub
         docker run --rm -v $PWD:/data calibre-cli \
-          ebook-meta /data/output.epub > epub_metadata.txt
+          ebook-meta /data/output.epub > metadata.txt
         docker run --rm -v $PWD:/data calibre-cli \
           ebook-meta /data/output.epub --get-cover=/data/cover.jpg
 
     - name: Extract and Print Published Date
       run: |
-        full_published_date=$(grep "Published" epub_metadata.txt | awk -F ":" '{print $2}' | tr -d '[:space:]')
+        full_published_date=$(grep "Published" metadata.txt | awk -F ":" '{print $2}' | tr -d '[:space:]')
         date_only=$(echo $full_published_date | cut -d'T' -f1)
         echo "$date_only" > published_date.txt
+
+    - name: Extract and Print Metadata
+      run: |
+        # Extract metadata starting from "Title" to the end of the file
+        awk '/Title/ {flag=1} flag' metadata.txt > epub_metadata.txt
 
     - name: Create The_Economist folder
       run: |
@@ -52,7 +57,7 @@ jobs:
     - name: Move files to The_Economist folder
       run: |
         folder_name=$(cat published_date.txt)
-        mv output.epub The_Economist/"$folder_name"/"$folder_name".epub
+        mv output.epub The_Economist/"$folder_name"/TE_"$folder_name".epub
         mv cover.jpg The_Economist/"$folder_name"/
         mv epub_metadata.txt The_Economist/"$folder_name"/
         mv published_date.txt The_Economist/"$folder_name"/
