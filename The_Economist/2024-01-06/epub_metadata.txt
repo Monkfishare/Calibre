@@ -1,32 +1,3 @@
-[migrations] started
-[migrations] no migrations found
-usermod: no changes
-───────────────────────────────────────
-
-      ██╗     ███████╗██╗ ██████╗ 
-      ██║     ██╔════╝██║██╔═══██╗
-      ██║     ███████╗██║██║   ██║
-      ██║     ╚════██║██║██║   ██║
-      ███████╗███████║██║╚██████╔╝
-      ╚══════╝╚══════╝╚═╝ ╚═════╝ 
-
-   Brought to you by linuxserver.io
-───────────────────────────────────────
-
-To support LSIO projects visit:
-https://www.linuxserver.io/donate/
-
-───────────────────────────────────────
-GID/UID
-───────────────────────────────────────
-
-User UID:    911
-User GID:    911
-───────────────────────────────────────
-
-[custom-init] No custom files found, skipping...
-[ls.io-init] done.
-Obt-Message: Xinerama extension is not present on the server
 Title               : The Economist [Jan 6th 2024]
 Author(s)           : calibre [calibre]
 Publisher           : calibre
