@@ -7,6 +7,12 @@ on:
   schedule:
     - cron: '0,30 14,15 * * 4' # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
 
+env:
+  REPLACEMENT_DATE: '2021-11-06' # For past editions, set date to, for example, '2023-01-07' || format:YYYY-MM-DD (Saturday)
+                                 # https://www.economist.com/weeklyedition/archive
+  
+  ENABLE_REPLACE: 'false'  # Set to 'true' to retrieve the past edition; 'false' to fetch the latest one
+
 jobs:
   fetch_and_push:
     runs-on: ubuntu-latest
@@ -25,6 +31,14 @@ jobs:
     - name: Fetch Latest economist.recipe
       run: |
         wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/economist.recipe -O economist.recipe
+
+    - name: Replace edition_date in economist.recipe
+      run: |
+        if [[ "$ENABLE_REPLACE" == "true" ]]; then
+          sed -i "s/edition_date = None/edition_date = '$REPLACEMENT_DATE'/" economist.recipe
+        else
+          echo "Replacement is disabled."
+        fi
 
     - name: Build Docker image
       run: docker build -t calibre-cli .
