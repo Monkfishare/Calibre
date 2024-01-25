@@ -1,7 +1,7 @@
 Title               : The Economist [Jan 20th 2024]
 Author(s)           : calibre [calibre]
 Publisher           : calibre
-Book Producer       : calibre (7.3.0) [https://calibre-ebook.com]
+Book Producer       : calibre (7.4.0) [https://calibre-ebook.com]
 Languages           : eng
 Published           : 2024-01-20T00:00:00+00:00
 Comments            : Articles in this issue:
@@ -12,21 +12,25 @@ Business
 
 KAL’s cartoon
 
+This week’s covers
+
 Donald Trump is winning. Business, beware
 
 Narendra Modi’s illiberalism may imperil India’s economic progress
 
 How America accidentally made a free-money machine for banks
 
-Charging Israel with genocide makes a mockery of the court
+Charging Israel with genocide makes a mockery of the ICJ
 
 AI-generated content is raising the value of trust
 
 Letters to the editor
 
+Ukraine’s chief spy argues that its security deal with Britain is a game-changer
+
 A former ambassador argues that Pakistan needs a new political compact
 
-Narendra Modi’s electoral juggernaut looks unstoppable
+Ram and the strongman: Modi looks unstoppable in India’s election
 
 Why are Americans so gloomy about their great economy?
 
@@ -44,7 +48,7 @@ It’s not the Trump Party quite yet
 
 The fightback against Javier Milei’s radical reforms has begun
 
-Wild boar hybrids are raising hell on the the Canadian prairies
+Wild boar hybrids are raising hell on the Canadian prairies
 
 Plunging fertility rates are creating problems for Latin America
 
@@ -72,7 +76,7 @@ Even as war rages in Gaza, Israel’s Arabs are feeling more Israeli
 
 Joe Biden puts the Houthis back on America’s baddies list
 
-Killings and abductions persist in Nigeria
+Kidnappers are wreaking havoc in Nigeria
 
 Why diplomacy over Sudan, Africa’s enduring nightmare, is stuck
 
