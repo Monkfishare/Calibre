@@ -1,0 +1,15 @@
+a {
+  text-decoration: none;
+}
+
+span[data-ornament="ufinish"] {
+  color: #e3120b;
+}
+
+img { 
+  max-width: 70%; 
+}
+
+.calibre_navbar {
+  display: none;
+}

@@ -14,72 +14,73 @@ env:
   ENABLE_REPLACE: 'false'  # Set to 'true' to retrieve the past edition; 'false' to fetch the latest one
 
 jobs:
-  fetch_and_push:
+  build:
     runs-on: ubuntu-latest
-    services:
-      docker:
-        image: docker:dind
-        ports:
-          - 2375:2375
     steps:      
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Pull latest changes
-      run: git pull origin main
+      - name: Install Dependencies
+        run: |
+          sudo apt-get install -y xdg-utils wget xz-utils python3
+          sudo apt-get install -y libxcb-cursor0 libxcb-xinerama0 libegl1 libopengl0
 
-    - name: Fetch Latest economist.recipe
-      run: |
-        wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/economist.recipe -O economist.recipe
+      - name: Install Calibre
+        run: |
+          sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 
-    - name: Replace edition_date in economist.recipe
-      run: |
-        if [[ "$ENABLE_REPLACE" == "true" ]]; then
-          sed -i "s/edition_date = None/edition_date = '$REPLACEMENT_DATE'/" economist.recipe
-        else
-          echo "Replacement is disabled."
-        fi
+      - name: Fetch Magazine Epub
+        run: |
+          wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/economist.recipe -O economist.recipe
 
-    - name: Build Docker image
-      run: docker build -t calibre-cli .
+          if [[ "$ENABLE_REPLACE" == "true" ]]; then
+            sed -i "s/edition_date = None/edition_date = '$REPLACEMENT_DATE'/" economist.recipe
+          else
+            echo "Replacement is disabled."
+          fi          
 
-    - name: Fetch Magazine and Get Cover
-      run: |
-        docker run --rm -v $PWD:/data calibre-cli \
-          ebook-convert /data/economist.recipe /data/output.epub
-        docker run --rm -v $PWD:/data calibre-cli \
-          ebook-meta /data/output.epub > metadata.txt
-        docker run --rm -v $PWD:/data calibre-cli \
-          ebook-meta /data/output.epub --get-cover=/data/cover.jpg
+          ebook-convert economist.recipe output.epub
+          ebook-meta output.epub > epub_metadata.txt
+          ebook-meta output.epub --get-cover=cover.jpg
 
-    - name: Extract and Print Published Date
-      run: |
-        full_published_date=$(grep "Published" metadata.txt | awk -F ":" '{print $2}' | tr -d '[:space:]')
-        date_only=$(echo $full_published_date | cut -d'T' -f1)
-        echo "$date_only" > published_date.txt
+      - name: Extract and Print Published Date
+        run: |
+          full_published_date=$(grep "Published" epub_metadata.txt | awk -F ":" '{print $2}' | tr -d '[:space:]')
+          date_only=$(echo $full_published_date | cut -d'T' -f1)
+          echo "$date_only" > published_date.txt
 
-    - name: Extract and Print Metadata
-      run: |
-        # Extract metadata starting from "Title" to the end of the file
-        awk '/Title/ {flag=1} flag' metadata.txt > epub_metadata.txt
+      - name: Convert EPUB to PDF
+        run: |
+          ebook-convert output.epub output.pdf \
+              --pdf-page-margin-top 30 \
+              --pdf-page-margin-bottom 40 \
+              --extra-css "styles.css"
 
-    - name: Create The_Economist folder
-      run: |
-        folder_name=$(cat published_date.txt)
-        mkdir -p The_Economist/"$folder_name"
+      - name: Compress PDF
+        run: |
+          pip install pdf-compressor
+          pdf-compressor --set-api-key ${{ secrets.PDF_COMPRESSOR_API_KEY }}
+          pdf-compressor --compression-level low -i output.pdf
+        env:
+          PDF_COMPRESSOR_API_KEY: ${{ secrets.PDF_COMPRESSOR_API_KEY }}
 
-    - name: Move files to The_Economist folder
-      run: |
-        folder_name=$(cat published_date.txt)
-        mv output.epub The_Economist/"$folder_name"/TE_"$folder_name".epub
-        mv cover.jpg The_Economist/"$folder_name"/
-        mv epub_metadata.txt The_Economist/"$folder_name"/
-        mv published_date.txt The_Economist/"$folder_name"/
+      - name: Create The_Economist folder
+        run: |
+          folder_name=$(cat published_date.txt)
+          mkdir -p The_Economist/"$folder_name"
 
-    - name: Commit and Push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add The_Economist/*
-        git commit -m "Add latest TE in EPUB format with cover and metadata"
-        git push
+      - name: Move files to The_Economist folder
+        run: |
+          folder_name=$(cat published_date.txt)
+          mv output.epub The_Economist/"$folder_name"/TE_"$folder_name".epub
+          mv output.pdf The_Economist/"$folder_name"/TE_"$folder_name".pdf
+          mv cover.jpg The_Economist/"$folder_name"/
+          mv epub_metadata.txt The_Economist/"$folder_name"/
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add The_Economist/*
+          git commit -m "Add latest TE in EPUB format with cover and metadata"
+          git push
