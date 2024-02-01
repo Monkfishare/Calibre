@@ -54,6 +54,7 @@ jobs:
           ebook-convert output.epub output.pdf \
               --pdf-page-margin-top 30 \
               --pdf-page-margin-bottom 40 \
+              --base-font-size 13 \
               --extra-css "styles.css"
 
       - name: Compress PDF
