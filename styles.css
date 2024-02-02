@@ -25,4 +25,5 @@ h2:not(.calibre_feed_title) {
   padding-left: 10px;
   color: #555;
 	font-style: italic;
+  display: inline-block;
 }
