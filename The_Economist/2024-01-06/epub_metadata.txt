@@ -1,7 +1,7 @@
 Title               : The Economist [Jan 6th 2024]
 Author(s)           : calibre [calibre]
 Publisher           : calibre
-Book Producer       : calibre (7.2.0) [https://calibre-ebook.com]
+Book Producer       : calibre (7.5.1) [https://calibre-ebook.com]
 Languages           : eng
 Published           : 2024-01-06T00:00:00+00:00
 Comments            : Articles in this issue:
@@ -23,6 +23,10 @@ Can India, Indonesia and Saudi Arabia be the next great economies?
 How backing Ukraine is key to the West’s security
 
 Letters to the editor
+
+Imran Khan warns that Pakistan’s election could be a farce
+
+Taiwan’s foreign minister on what’s at stake in the coming election
 
 Joe Biden’s chances do not look good. The Democrats have no plan B
 
@@ -52,9 +56,9 @@ Anwar Ibrahim, Malaysia’s prime minister, is wasting his opportunity
 
 Xi Jinping and China face another tough year
 
-For China, Taiwan’s elections are a looming crisis
-
 Millions of Chinese have embraced skiing
+
+For China, Taiwan’s elections are a looming crisis
 
 Another war could break out on the Israel-Lebanon border
 
@@ -86,11 +90,11 @@ Welcome to the era of AI nationalism
 
 A new year’s message from the CEO
 
-Meet ACWA Power, Saudi Arabia’s unlikely solar star
+Saudi Arabia has an unlikely solar star
 
 Can Sino-Arabian business ties replace Sino-American ones?
 
-The Communist Party wants (a bit) less consumer internet
+The Chinese Communist Party wants (a bit) less consumer internet
 
 Meet the shrewdest operators in today’s oil markets
 
@@ -114,7 +118,13 @@ Social media’s online diarists have a long lineage
 
 A cultural guide to new year’s resolutions
 
+What to read and watch about Bangladesh
+
 Economic data, commodities and markets
+
+How art is used against artists, like Young Thug, in court
+
+How sanctions on Russia will change the diamond trade
 
 Gao Yaojie uncovered a scandal that shocked and shamed China
 
