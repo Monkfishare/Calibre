@@ -1,7 +1,7 @@
 Title               : The Economist [Feb 10th 2024]
 Author(s)           : calibre [calibre]
 Publisher           : calibre
-Book Producer       : calibre (7.4.0) [https://calibre-ebook.com]
+Book Producer       : calibre (7.5.1) [https://calibre-ebook.com]
 Languages           : eng
 Published           : 2024-02-10T00:00:00+00:00
 Comments            : Articles in this issue:
@@ -16,7 +16,7 @@ This week’s covers
 
 Killer drones pioneered in Ukraine are the weapons of the future
 
-Can Xi Jinping win back the markets?
+Has Xi Jinping lost control of the markets?
 
 House Republicans are helping Vladimir Putin
 
@@ -40,7 +40,7 @@ What the death of America’s border bill says about toxic congressional politic
 
 A court rejects Donald Trump’s claim to absolute immunity
 
-Shh! Legislation in progress
+Congress might just pass an astonishingly sensible tax deal
 
 Florida too may have an abortion referendum in November
 
@@ -88,7 +88,7 @@ A mounting crisis of confidence confronts Olaf Scholz
 
 Madrid is booming. Growing while keeping its cool will be the tricky part
 
-Vladimir Putin extends his crackdown
+Vladimir Putin extends his crackdown in Russia
 
 Poland is trying to restore the rule of law without violating it
 
