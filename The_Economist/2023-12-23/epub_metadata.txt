@@ -1,7 +1,7 @@
 Title               : The Economist [Dec 23rd 2023]
 Author(s)           : calibre [calibre]
 Publisher           : calibre
-Book Producer       : calibre (7.2.0) [https://calibre-ebook.com]
+Book Producer       : calibre (7.5.1) [https://calibre-ebook.com]
 Languages           : eng
 Published           : 2023-12-23T00:00:00+00:00
 Comments            : Articles in this issue:
