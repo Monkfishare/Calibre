@@ -8,7 +8,7 @@ on:
     - cron: '0,30 14,15 * * 4' # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
 
 env:
-  REPLACEMENT_DATE: '2024-01-13' # For past editions, set date to, for example, '2023-01-07' || format:YYYY-MM-DD (Saturday)
+  REPLACEMENT_DATE: '2024-01-20' # For past editions, set date to, for example, '2023-01-07' || format:YYYY-MM-DD (Saturday)
                                  # https://www.economist.com/weeklyedition/archive
   
   ENABLE_REPLACE: 'true'  # Set to 'true' to retrieve the past edition; 'false' to fetch the latest one
