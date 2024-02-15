@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0,30 14,15 * * 4' # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+    - cron: '0,30 14,15,16 * * 4' # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
 
 env:
   REPLACEMENT_DATE: '2021-11-06' # For past editions, set date to, for example, '2023-01-07' || format:YYYY-MM-DD (Saturday)
