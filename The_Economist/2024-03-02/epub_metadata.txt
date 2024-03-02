@@ -1,7 +1,7 @@
 Title               : The Economist [Mar 2nd 2024]
 Author(s)           : calibre [calibre]
 Publisher           : calibre
-Book Producer       : calibre (7.5.1) [https://calibre-ebook.com]
+Book Producer       : calibre (7.6.0) [https://calibre-ebook.com]
 Languages           : eng
 Published           : 2024-03-02T00:00:00+00:00
 Comments            : Articles in this issue:
@@ -16,7 +16,7 @@ This week’s covers
 
 How to build a British voter
 
-Stocks are booming. But their golden age is drawing to a close
+A golden age for stockmarkets is drawing to a close
 
 Fentanyl cannot be defeated without new tactics
 
@@ -24,7 +24,9 @@ The perils of a Le Pen presidency
 
 How to put Russia’s frozen assets to work for Ukraine
 
-India could be ruined by its political and economic divisions
+To see India’s future, go south
+
+Autocracies are exporting autocracy to their diasporas
 
 Letters to the editor
 
@@ -80,7 +82,7 @@ Kharkiv is struggling under Russian rocket attacks
 
 Is Europe’s stubby skyline a sign of low ambition?
 
-A changing British electorate is propelling Labour toward victory
+A changing British electorate is propelling Labour towards victory
 
 English football’s financial fracas
 
@@ -137,6 +139,8 @@ Why did a once-revered painter, Frans Hals, fall out of favour?
 Can a dozen shipwrecks tell the history of the world?
 
 Cinemas may be dying. But IMAX and the high end are thriving
+
+What to read to understand cyber-security
 
 Economic data, commodities and markets
 
