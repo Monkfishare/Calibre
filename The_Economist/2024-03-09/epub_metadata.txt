@@ -1,7 +1,7 @@
 Title               : The Economist [Mar 9th 2024]
 Author(s)           : calibre [calibre]
 Publisher           : calibre
-Book Producer       : calibre (7.6.0) [https://calibre-ebook.com]
+Book Producer       : calibre (7.7.0) [https://calibre-ebook.com]
 Languages           : eng
 Published           : 2024-03-09T00:00:00+00:00
 Comments            : Articles in this issue:
