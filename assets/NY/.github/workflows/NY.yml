@@ -25,12 +25,12 @@ jobs:
       - name: Install Calibre
         run: |
           sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+          pip install requests
+          python nydate.py
 
       - name: Fetch Epub
         run: |
           wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/new_yorker.recipe -O NY.recipe
-          pip install requests beautifulsoup4
-          python nydate.py
           python replace_NY.py
           ebook-convert NY.recipe output.epub
           ebook-meta output.epub > epub_metadata.txt

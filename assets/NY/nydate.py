@@ -1,29 +1,58 @@
 import requests
-from bs4 import BeautifulSoup
-from datetime import datetime
-import re
+from datetime import datetime, timedelta
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-url = "https://www.newyorker.com/magazine"
-response = requests.get(url)
-html_content = response.text
+def is_url_accessible(url):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            return url, True
+    except requests.exceptions.RequestException:
+        pass
+    return url, False
 
-soup = BeautifulSoup(html_content, "html.parser")
+def generate_issue_dates(start_year=2023):
+    urls = []
+    current_date = datetime.now() + timedelta(days=30)
+    end_date = datetime(year=start_year, month=1, day=1)
 
-meta_tag = soup.find("meta", property="og:image")
+    while current_date >= end_date:
+        date_str = current_date.strftime('%Y/%m/%d')
+        url = f'https://www.newyorker.com/magazine/{date_str}'
+        urls.append((date_str, url))
+        current_date -= timedelta(days=1)
+    
+    return urls
 
-if meta_tag:
-    image_url = meta_tag["content"]
-    date_match = re.search(r'/(\d{4}_\d{2}_\d{2})\.', image_url)
-    if date_match:
-        date_str = date_match.group(1).replace('_', '-')
-        issued_date = datetime.strptime(date_str, "%Y-%m-%d")
-        formatted_date = issued_date.strftime("%Y/%m/%d")
+def save_successful_dates(dates, filename="issuedate_NY.txt"):
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            for url in dates:
+                date_str = url.split('/')[-3:]
+                formatted_date = '/'.join(date_str)
+                f.write(f"{formatted_date}\n")
+        print(f"Successfully saved {len(dates)} dates to {filename}")
+    except IOError as e:
+        print(f"Error saving file {filename}: {e}")
 
-        with open("issuedate_NY.txt", "w") as file:
-            file.write(formatted_date)
+def check_urls(urls):
+    successful_urls = []
 
-        print("Date saved to issuedate_NY.txt:", formatted_date)
-    else:
-        print("Date not found in the URL.")
-else:
-    print("Meta tag with property 'og:image' not found.")
+    with ThreadPoolExecutor(max_workers=50) as executor:
+        future_to_url = {executor.submit(is_url_accessible, url): url for _, url in urls}
+        
+        for future in as_completed(future_to_url):
+            url, is_accessible = future.result()
+            if is_accessible:
+                print(f"Success: {url}")
+                successful_urls.append(url)
+            else:
+                print(f"Failed: {url}")
+    
+    return successful_urls
+
+if __name__ == "__main__":
+    urls = generate_issue_dates()
+    successful_urls = check_urls(urls)
+    successful_urls.sort(reverse=True)
+    save_successful_dates(successful_urls)

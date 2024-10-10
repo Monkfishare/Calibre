@@ -20,7 +20,8 @@ jobs:
       - name: Install Calibre
         run: |
           sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
-          python month_SA.py
+          pip install requests bs4
+          python SAdate.py
 
       - name: Fetch Magazine Epub
         run: |
