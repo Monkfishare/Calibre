@@ -1,0 +1,21 @@
+a {
+  text-decoration: none;
+}
+
+img { 
+  display: block;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+[class^="calibre_navbar"] {
+  font-size: 15px;
+}
+
+body {
+  line-height: 1.3;
+}
+
+[class^="calibre"] h1 {
+  font-size: 20px;
+}
