@@ -1,0 +1,57 @@
+name: SA Magazine
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get install -y xdg-utils wget xz-utils python3
+          sudo apt-get install -y libxcb-cursor0 libxcb-xinerama0 libegl1 libopengl0
+
+      - name: Install Calibre
+        run: |
+          sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+          python month_SA.py
+
+      - name: Fetch Magazine Epub
+        run: |
+          # wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/scientific_american.recipe -O SA.recipe
+          wget https://gitlab.com/Monkfishare/recipe/-/raw/main/scientific_american.recipe -O SA.recipe
+          python replace_SA.py
+          ebook-convert SA.recipe output.epub
+          ebook-meta output.epub > epub_metadata.txt
+          ebook-meta output.epub --get-cover=cover.jpg
+
+      - name: Convert EPUB to PDF
+        run: |
+          ebook-convert output.epub output.pdf \
+              --pdf-page-margin-top 30 \
+              --pdf-page-margin-bottom 40 \
+              --base-font-size 13 \
+              --extra-css "styles_SA.css"
+
+      - name: Create folder
+        run: |
+          folder_name=$(cat published_date.txt)
+          year=$(echo "$folder_name" | cut -d '-' -f 1)
+          mkdir -p SA/"$year"/"$folder_name"
+          mv output.epub SA/"$year"/"$folder_name"/SA_"$folder_name".epub
+          mv output.pdf SA/"$year"/"$folder_name"/SA_"$folder_name".pdf
+          mv cover.jpg SA/"$year"/"$folder_name"/
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add SA/*
+          git commit -m "Initial commit"
+          git push

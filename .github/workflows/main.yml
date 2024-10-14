@@ -1,0 +1,34 @@
+name: Update Repo
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download zip file
+        run: |
+          curl -L -o 2024-main.zip https://gitlab.com/Monkfishare/2024/-/archive/main/2024-main.zip
+          unzip 2024-main.zip -d 2024
+          rm -rf TE assets
+          mv 2024/2024-main/* .
+          # curl -L -o 2023-main.zip https://gitlab.com/Monkfishare/2023/-/archive/main/2023-main.zip
+          # unzip 2023-main.zip -d 2023
+          # mv 2023/2023-main/* .
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add TE/*
+          git add assets/*
+          git commit -m "Initial commit"
+          git push
