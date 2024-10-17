@@ -28,7 +28,7 @@ jobs:
           sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
           python3 -m venv venv
           source venv/bin/activate
-          pip install bs4
+          pip install bs4 requests
           python TEdate.py
 
       - name: Fetch Epub
