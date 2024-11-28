@@ -1,0 +1,61 @@
+name: TE
+
+on:
+  push:
+    branches:
+      - main
+  # schedule:
+  #   - cron: '0 21 * * 5,6,0,3'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Pull latest changes
+        run: git pull origin main
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get install -y xdg-utils wget xz-utils python3
+          sudo apt-get install -y libxcb-cursor0 libxcb-xinerama0 libegl1 libopengl0
+
+      - name: Install Calibre
+        run: |
+          sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+
+      - name: Fetch Epub
+        run: |
+          wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/economist.recipe -O TE.recipe      
+          python replace_TE.py
+          ebook-convert TE.recipe output.epub
+          ebook-meta output.epub > epub_metadata.txt
+          ebook-meta output.epub --get-cover=cover.jpg
+
+      - name: Convert EPUB to PDF
+        run: |
+          ebook-convert output.epub output.pdf \
+              --pdf-page-margin-top 30 \
+              --pdf-page-margin-bottom 40 \
+              --base-font-size 13 \
+              --extra-css "styles_TE.css"
+
+      - name: Move files to folder
+        run: |
+          full_published_date=$(grep "Published" epub_metadata.txt | awk -F ":" '{print $2}' | tr -d '[:space:]')
+          date_only=$(echo $full_published_date | cut -d'T' -f1)
+          year=$(echo "$date_only" | cut -d '-' -f 1)
+          mkdir -p TE/"$year"/"$date_only"
+          mv output.epub TE/"$year"/"$date_only"/TE_"$date_only".epub
+          mv output.pdf TE/"$year"/"$date_only"/TE_"$date_only".pdf
+          mv cover.jpg TE/"$year"/"$date_only"/
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add TE/*
+          git commit -m "Initial commit"
+          git push

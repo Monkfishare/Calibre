@@ -1,0 +1,26 @@
+a {
+  text-decoration: none;
+}
+
+img { 
+  max-width: 70%; 
+}
+
+[class^="calibre_navbar"] {
+  font-size: 15px;
+  text-align: center;
+}
+
+[class^="captionwrapper"] span, 
+[class^="contributorswrapper"] span {
+  display: block;
+  text-align: center;
+}
+
+[class^="calibre"] h1 {
+  font-size: 20px;
+}
+
+body {
+  line-height: 1.3;
+}

@@ -1,0 +1,22 @@
+a {
+  text-decoration: none;
+}
+
+[class^="calibre"] img:not([src="mastheadImage.jpg"])  {
+  display: block;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+[class^="calibre_navbar"] {
+  font-size: 15px;
+  text-align: center;
+}
+
+[class^="calibre"] h1 {
+  font-size: 20px;
+}
+
+body {
+  line-height: 1.3;
+}
