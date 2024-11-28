@@ -10,20 +10,24 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: |
+          sudo apt-get update
           sudo apt-get install -y xdg-utils wget xz-utils python3
           sudo apt-get install -y libxcb-cursor0 libxcb-xinerama0 libegl1 libopengl0
 
       - name: Install Calibre
         run: |
           sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+          python3 -m venv venv
+          source venv/bin/activate
           pip install bs4 requests
           python nybooks.py
+
 
       - name: Fetch Epub
         run: |

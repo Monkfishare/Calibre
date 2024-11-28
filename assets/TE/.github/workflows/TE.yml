@@ -1,4 +1,4 @@
-name: TE
+name: TE Magazine
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -19,20 +19,33 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          sudo apt-get update
           sudo apt-get install -y xdg-utils wget xz-utils python3
           sudo apt-get install -y libxcb-cursor0 libxcb-xinerama0 libegl1 libopengl0
 
       - name: Install Calibre
         run: |
           sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install bs4 requests
+          python TEdate.py
+
 
       - name: Fetch Epub
         run: |
-          wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/economist.recipe -O TE.recipe      
+          wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/economist.recipe -O TE.recipe
           python replace_TE.py
-          ebook-convert TE.recipe output.epub
-          ebook-meta output.epub > epub_metadata.txt
-          ebook-meta output.epub --get-cover=cover.jpg
+          ebook-convert TE.recipe output_raw.epub
+          ebook-meta output_raw.epub > epub_metadata.txt
+          ebook-meta output_raw.epub --get-cover=cover.jpg  
+
+      - name: Cleanup Epub
+        run: |
+          unzip -o output_raw.epub -d output_folder
+          find output_folder -type f -name "*.html" -exec sed -i 's|<p[^>]*><i[^>]*>.*newsletter.*</i></p>||g' {} \;
+          find output_folder -type f -name "*.html" -exec sed -i 's|This article was downloaded by <strong[^>]*>calibre</strong> from ||g' {} \;
+          zip -r output.epub output_folder && rm -rf output_folder
 
       - name: Convert EPUB to PDF
         run: |
@@ -51,6 +64,7 @@ jobs:
           mv output.epub TE/"$year"/"$date_only"/TE_"$date_only".epub
           mv output.pdf TE/"$year"/"$date_only"/TE_"$date_only".pdf
           mv cover.jpg TE/"$year"/"$date_only"/
+
 
       - name: Commit and Push changes
         run: |

@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -19,22 +19,33 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          sudo apt-get update
           sudo apt-get install -y xdg-utils wget xz-utils python3
           sudo apt-get install -y libxcb-cursor0 libxcb-xinerama0 libegl1 libopengl0
 
       - name: Install Calibre
         run: |
           sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
-          pip install requests
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install requests bs4
           python TIME.py
+
 
       - name: Fetch Magazine Epub
         run: |
           wget https://raw.githubusercontent.com/kovidgoyal/calibre/master/recipes/time_magazine.recipe -O TM.recipe
           python replace_TM.py
-          ebook-convert TM.recipe output.epub
-          ebook-meta output.epub > epub_metadata.txt
-          ebook-meta output.epub --get-cover=cover.jpg
+          ebook-convert TM.recipe output_raw.epub
+          ebook-meta output_raw.epub > epub_metadata.txt
+          ebook-meta output_raw.epub --get-cover=cover.jpg
+
+      - name: Cleanup Epub
+        run: |
+          unzip -o output_raw.epub -d output_folder
+          find output_folder -type f -name "*.html" -exec sed -i -E 's|<h3[^>]*>More From TIME</h3>||g; s|<div[^>]*>.*video id.*</div>||g' {} \;
+          find output_folder -type f -name "*.html" -exec sed -i 's|This article was downloaded by <strong[^>]*>calibre</strong> from ||g' {} \;
+          zip -r output.epub output_folder && rm -rf output_folder
 
       - name: Convert EPUB to PDF
         run: |
@@ -54,6 +65,7 @@ jobs:
           mv output.epub TM/"$year"/"$folder_name"/TM_"$folder_name".epub
           mv output.pdf TM/"$year"/"$folder_name"/TM_"$folder_name".pdf
           mv cover.jpg TM/"$year"/"$folder_name"/
+
 
       - name: Commit and Push changes
         run: |

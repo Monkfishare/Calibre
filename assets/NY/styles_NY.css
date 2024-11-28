@@ -2,8 +2,8 @@ a {
   text-decoration: none;
 }
 
-img { 
-  max-width: 70%; 
+img {
+  max-width: 70%;
 }
 
 [class^="calibre_navbar"] {
@@ -11,7 +11,7 @@ img {
   text-align: center;
 }
 
-[class^="captionwrapper"] span, 
+[class^="captionwrapper"] span,
 [class^="contributorswrapper"] span {
   display: block;
   text-align: center;
