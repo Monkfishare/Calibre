@@ -14,7 +14,8 @@ def write_file(file_path, content):
 
 recipe_content = read_file(recipe_file)
 recipe_content = re.sub(r'\b(600|960|80)\b', '', recipe_content)
-recipe_content = re.sub(r'\bdelay\s*=\s*\d+\b', 'delay = 4', recipe_content)
+# recipe_content = re.sub(r'\bdelay\s*=\s*\d+\b', 'delay = 4', recipe_content)
+recipe_content = re.sub(r"format=auto/\'\s*\)", "format=auto/\').replace('SQ_', '')", recipe_content)
 recipe_content = re.sub(r"'date'\s*:\s*\{\s*", "'date': {\n            'default': '',\n            ", recipe_content)
 
 if os.path.getsize(issuedate_file) > 0:
