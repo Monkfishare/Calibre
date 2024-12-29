@@ -11,21 +11,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Install Dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y xdg-utils wget xz-utils python3
+          sudo apt-get install -y xdg-utils xz-utils
           sudo apt-get install -y libxcb-cursor0 libxcb-xinerama0 libegl1 libopengl0
-
       - name: Install Calibre
         run: |
           sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
-          python3 -m venv venv
+          python -m venv venv
           source venv/bin/activate
           pip install requests bs4
           python SAdate.py
-
 
       - name: Fetch Magazine Epub
         run: |
@@ -34,7 +30,6 @@ jobs:
           ebook-convert SA.recipe output_raw.epub
           ebook-meta output_raw.epub > epub_metadata.txt
           ebook-meta output_raw.epub --get-cover=cover.jpg
-
       - name: Cleanup Epub
         run: |
           unzip -o output_raw.epub -d output_folder
@@ -42,7 +37,6 @@ jobs:
           find output_folder -type f -name "*.html" -exec sed -i 's|<hr class="calibre.\{1,2\}" data-block="sciam/raw_html"/>||g' {} \;
           find output_folder -type f -name "*.html" -exec sed -i 's|This article was downloaded by <strong[^>]*>calibre</strong> from ||g' {} \;
           zip -r output.epub output_folder && rm -rf output_folder
-
       - name: Convert EPUB to PDF
         run: |
           ebook-convert output.epub output.pdf \
@@ -50,7 +44,6 @@ jobs:
               --pdf-page-margin-bottom 40 \
               --base-font-size 13 \
               --extra-css "styles_SA.css"
-
       - name: Create folder
         run: |
           folder_name=$(cat published_date.txt)

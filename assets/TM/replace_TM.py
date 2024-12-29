@@ -24,7 +24,6 @@ modifications = {
     "self.cover_url = data['hero']['src']['large']": "self.cover_url = data['hero']['src']['large'] + '?quality=100&w=3000'",
     "cover_url = article['hero']['src']['large']": "cover_url = article['hero']['src']['large'] + '?quality=100&w=3000'",
     "img['src'] = img['data-lazy-src']": "img['src'] = img['data-lazy-src'] + '?quality=100&w=1000'",
-    "url = article['shortlink']": "url = article['shortlink'].replace('?p=', '')",
     "https://time.com/magazine": f"https://time.com/magazine/us/{Edition_ID}" if Edition_ID else "https://time.com/magazine/us/",
     "['title'].split('|')[0].strip()": "['date']"
 }
