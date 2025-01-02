@@ -1,0 +1,32 @@
+name: Update Repo
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download zip file
+        run: |
+          curl -L -o 2025-main.zip https://gitlab.com/Monkfishare/2025/-/archive/main/2025-main.zip
+          unzip 2025-main.zip -d 2025
+          rm -rf TE assets The_World_Ahead
+          mv 2025/2025-main/* .
+
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add TE/*
+          git add assets/*
+          git add The_World_Ahead/*
+          git commit -m "Initial commit"
+          git push
