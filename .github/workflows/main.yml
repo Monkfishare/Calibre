@@ -18,13 +18,13 @@ jobs:
         run: |
           curl -L -o 2024-main.zip https://gitlab.com/Monkfishare/2024/-/archive/main/2024-main.zip
           unzip 2024-main.zip -d 2024
-          rm -rf TE assets
+          rm -rf TE assets The_World_Ahead
           mv 2024/2024-main/* .
 
       - name: Commit and Push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add TE/* assets/*
+          git add TE/* assets/* The_World_Ahead/*
           git commit -m "Initial commit"
           git push
