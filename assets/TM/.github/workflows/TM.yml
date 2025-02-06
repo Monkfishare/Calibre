@@ -15,6 +15,7 @@ jobs:
         run: git pull origin main
       - name: Install Dependencies
         run: |
+          sudo apt-get update
           sudo apt-get install -y xdg-utils xz-utils
           sudo apt-get install -y libxcb-cursor0 libxcb-xinerama0 libegl1 libopengl0
       - name: Install Calibre
@@ -22,7 +23,7 @@ jobs:
           sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
           python -m venv venv
           source venv/bin/activate
-          pip install requests bs4
+          pip install requests beautifulsoup4
           python TIME.py
 
       - name: Fetch Magazine Epub
