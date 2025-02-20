@@ -17,6 +17,9 @@ recipe_content = re.sub(r'\b(600|960|80)\b', '', recipe_content)
 recipe_content = re.sub(r'\bdelay\s*=\s*\d+\b', 'delay = 5', recipe_content)
 recipe_content = re.sub(r"from_archive\s*=\s*True", "from_archive = False", recipe_content)
 recipe_content = re.sub(r"'date'\s*:\s*\{\s*", "'date': {\n            'default': '',\n            ", recipe_content)
+recipe_content = re.sub(r"\.replace\('economist.com/', qua\)", 
+                       r".replace('economist.com/', qua).replace('20250215_WBD002.jpg', '20250215_WBD001.jpg')", 
+                       recipe_content, count=1)
 
 if os.path.getsize(issuedate_file) > 0:
     issuedate_content = read_file(issuedate_file).splitlines()
