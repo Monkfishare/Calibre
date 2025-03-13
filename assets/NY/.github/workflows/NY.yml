@@ -38,7 +38,12 @@ jobs:
           unzip -o output_raw.epub -d output_folder
           find output_folder -type f -name "*.html" -exec sed -i 's|You.re reading.*newsletter.*Sign up to receive it in your in-box.||g' {} \;
           find output_folder -type f -name "*.html" -exec sed -i 's|This article was downloaded by <strong[^>]*>calibre</strong> from ||g' {} \;
-          zip -r output.epub output_folder && rm -rf output_folder
+          sed -i 's|calibre</dc:creator>|The New Yorker</dc:creator>|g' output_folder/content.opf
+          cd output_folder
+          zip -X0 ../output.epub mimetype
+          zip -r ../output.epub .
+          cd ..
+          rm -rf output_folder
       - name: Convert EPUB to PDF
         run: |
           ebook-convert output.epub output.pdf \
