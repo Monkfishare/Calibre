@@ -1,9 +1,6 @@
 name: Update Repo
-
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   update-repo:
@@ -13,14 +10,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Pull latest changes
         run: git pull origin main
-
       - name: Download zip file
         run: |
           curl -L -o 2025-main.zip https://gitlab.com/Monkfishare/2025/-/archive/main/2025-main.zip
           unzip 2025-main.zip -d 2025
           rm -rf TE assets
           mv 2025/2025-main/* .
-
       - name: Commit and Push changes
         run: |
           git config --local user.email "action@github.com"
