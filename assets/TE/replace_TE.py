@@ -24,8 +24,8 @@ if os.path.getsize(issuedate_file) > 0:
     issuedate_content = read_file(issuedate_file).splitlines()
     edition_date = issuedate_content[0].strip()
 
-    recipe_content = re.sub(r"'default': ''", f"'default': '{edition_date}'", recipe_content, count=1)
-    # recipe_content = re.sub(r"'default': ''", f"'default': ''", recipe_content, count=1)
+    # recipe_content = re.sub(r"'default': ''", f"'default': '{edition_date}'", recipe_content, count=1)
+    recipe_content = re.sub(r"'default': ''", f"'default': ''", recipe_content, count=1)
 
     remaining_lines = issuedate_content[1:]
     write_file(issuedate_file, '\n'.join(remaining_lines) + ('\n' if remaining_lines else ''))
