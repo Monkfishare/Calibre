@@ -19,7 +19,7 @@ def fetch_issue_ids(start_year, current_year):
         else:
             print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
 
-    issue_ids = list(map(int, issue_ids))
+    issue_ids = [int(id_num) for id_num in issue_ids if id_num != "7278556"]
     issue_ids.sort(reverse=True)
     
     with open("issueID_TM.txt", "w", encoding="utf-8") as output_file:

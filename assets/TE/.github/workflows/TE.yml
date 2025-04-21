@@ -37,10 +37,10 @@ jobs:
         run: |
           unzip -o output_raw.epub -d output_folder
           find output_folder -type f -name "*.html" -exec perl -pi -e 's|<p[^>]*><i[^>]*>(\S+ ){0,300}newsletter.*?</i></p>||g' {} \;
-          find output_folder -type f -name "*.html" -exec sed -i 's|<p[^>]*><b[^>]*><i[^>]*>We’re hiring(\S+ ){0,300}newsletter.*</i></p>||g' {} \;
-          find output_folder -type f -name "*.html" -exec sed -i 's|■|<span style="color: #e3120b;">■</span>|g' {} \;
-          find output_folder -type f -name "*.html" -exec sed -i 's|This article was downloaded by <strong[^>]*>calibre</strong> from ||g' {} \;
-          sed -i 's|calibre</dc:creator>|The Economist</dc:creator>|g' output_folder/content.opf
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|<p[^>]*><b[^>]*><i[^>]*>We.re hiring(\S+ ){0,300}newsletter.*</i></p>||g' {} \;
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|■|<span style="color: #e3120b;">■</span>|g' {} \;
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|This article was downloaded by <strong[^>]*>calibre</strong> from ||g' {} \;
+          perl -pi -e 's|calibre</dc:creator>|The Economist</dc:creator>|g' output_folder/content.opf
           cd output_folder
           zip -X0 ../output.epub mimetype
           zip -r ../output.epub .
