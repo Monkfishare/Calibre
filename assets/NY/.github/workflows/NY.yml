@@ -36,7 +36,11 @@ jobs:
       - name: Cleanup Epub
         run: |
           unzip -o output_raw.epub -d output_folder
-          find output_folder -type f -name "*.html" -exec perl -pi -e 's|You.re reading.*newsletter.*Sign up to receive it in your in-box.||g' {} \;
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|<strong class="calibre\d+">.{0,100}?</strong><br class="contentheaderwrapper-clujbs"/>Subscribers get full access. <a href="[^"]+"><em class="calibre\d+">Read the issue</em></a>.{0,1000}?</div></picture></span></div>.{0,300}?<hr class="calibre\d+"/>||g' {} \;
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|<div class="contentheaderwrapper-clujbs"[^>]*>.{0,200}?<a[^>]+[^"]+"[^>]*>.{0,200}?<em[^>]*>.{0,200}?<strong[^>]*>.{0,50}?</strong>.{0,200}?</em></span></a></div></div>||g' {} \;
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|<p class="paywall"><em[^>]*>.{0,50}?<a[^>]+([^<]*ign up[^<]*)</a></em>.{0,10}?</p>||g' {} \;
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|<picture><img alt="" class="calibre\d+" src="[^"]+"/></picture>||g' {} \;
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|(<div class="contentheaderwrapper-clujbs">)(<a href="https://www.newyorker.com/contributors/[^"]+">[^<]+</a>)|$1<p></p>$2|g' {} \;
           find output_folder -type f -name "*.html" -exec perl -pi -e 's|This article was downloaded by <strong[^>]*>calibre</strong> from ||g' {} \;
           perl -pi -e 's|calibre</dc:creator>|The New Yorker</dc:creator>|g' output_folder/content.opf
           cd output_folder

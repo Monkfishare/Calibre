@@ -36,9 +36,10 @@ jobs:
       - name: Cleanup Epub
         run: |
           unzip -o output_raw.epub -d output_folder
-          find output_folder -type f -name "*.html" -exec sed -i -E 's|<h3[^>]*>More From TIME</h3>||g; s|<div[^>]*>.*video id.*</div>||g' {} \;
-          find output_folder -type f -name "*.html" -exec sed -i 's|This article was downloaded by <strong[^>]*>calibre</strong> from ||g' {} \;
-          sed -i 's|calibre</dc:creator>|TIME</dc:creator>|g' output_folder/content.opf
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|<div class="calibre\d+">\[video id=(\w+) autostart="viewable"\]</div>||g' {} \;
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|<p class="calibre\d+"><a href="([^"]+)"[^>]*><em class="calibre\d+">(.{0,100})</em></a></p>||g' {} \;
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|This article was downloaded by <strong[^>]*>calibre</strong> from ||g' {} \;
+          perl -pi -e 's|calibre</dc:creator>|TIME</dc:creator>|g' output_folder/content.opf
           cd output_folder
           zip -X0 ../output.epub mimetype
           zip -r ../output.epub .

@@ -36,6 +36,7 @@ jobs:
       - name: Cleanup Epub
         run: |
           unzip -o output_raw.epub -d output_folder
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|<blockquote class="calibre\d+">.{0,1000}?</a></li></blockquote>||g' {} \;
           find output_folder -type f -name "*.html" -exec perl -pi -e 's|<p[^>]*><i[^>]*>(\S+ ){0,300}newsletter.*?</i></p>||g' {} \;
           find output_folder -type f -name "*.html" -exec perl -pi -e 's|<p[^>]*><b[^>]*><i[^>]*>We.re hiring(\S+ ){0,300}newsletter.*</i></p>||g' {} \;
           find output_folder -type f -name "*.html" -exec perl -pi -e 's|■|<span style="color: #e3120b;">■</span>|g' {} \;

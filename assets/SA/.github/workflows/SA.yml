@@ -35,7 +35,7 @@ jobs:
         run: |
           unzip -o output_raw.epub -d output_folder
           find output_folder -type f -name "*.html" -exec perl -pi -e 's|<hr[^>]*/><h4[^>]*>On supporting.*ideas shaping our world today.</p><hr[^>]*/>||g' {} \;
-          find output_folder -type f -name "*.html" -exec perl -pi -e 's|<hr class="calibre.\{1,2\}" data-block="sciam/raw_html"/>||g' {} \;
+          find output_folder -type f -name "*.html" -exec perl -pi -e 's|<hr class="calibre\d+" data-block="sciam/raw_html"/>||g' {} \;
           find output_folder -type f -name "*.html" -exec perl -pi -e 's|This article was downloaded by <strong[^>]*>calibre</strong> from ||g' {} \;
           perl -pi -e 's|calibre</dc:creator>|Scientific American</dc:creator>|g' output_folder/content.opf
           cd output_folder
