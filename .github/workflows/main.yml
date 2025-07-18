@@ -1,0 +1,41 @@
+name: Update Repo
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Pull latest changes
+        run: git pull origin main
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xdg-utils xz-utils
+          sudo apt-get install -y libxcb-cursor0 libxcb-xinerama0 libegl1 libopengl0
+      - name: Install Calibre
+        run: |
+          sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+      - name: Download zip file
+        run: |
+          git clone https://gitlab.com/Monkfishare/2025.git temp-repo
+          rm -rf TE
+          cp -R temp-repo/* .
+          rm -rf temp-repo
+      - name: Convert EPUB to AZW3
+        run: |
+          find TE -name "*.epub" -type f | while read file; do
+            dir=$(dirname "$file")
+            basename=$(basename "$file" .epub)
+            output="$dir/$basename.azw3"
+            ebook-convert "$file" "$output"
+          done
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add TE
+          git commit -m "Initial commit"
+          git push
