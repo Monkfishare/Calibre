@@ -1,7 +1,17 @@
 name: Update Repo
 on:
   workflow_dispatch:
-
+    inputs:
+      convert_count:
+        description: 'Number of EPUB files to convert'
+        required: false
+        default: '2'
+        type: choice
+        options:
+          - '1'
+          - '2'
+          - '3'
+          - 'all'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,12 +36,21 @@ jobs:
           rm -rf temp-repo
       - name: Convert EPUB to AZW3
         run: |
-          find TE -name "*.epub" -type f | while read file; do
-            dir=$(dirname "$file")
-            basename=$(basename "$file" .epub)
-            output="$dir/$basename.azw3"
-            ebook-convert "$file" "$output"
-          done
+          if [ "${{ github.event.inputs.convert_count }}" = "all" ]; then
+            find TE -name "*.epub" -type f | sort -r | while read file; do
+              dir=$(dirname "$file")
+              basename=$(basename "$file" .epub)
+              output="$dir/$basename.azw3"
+              ebook-convert "$file" "$output"
+            done
+          else
+            find TE -name "*.epub" -type f | sort -r | head -${{ github.event.inputs.convert_count }} | while read file; do
+              dir=$(dirname "$file")
+              basename=$(basename "$file" .epub)
+              output="$dir/$basename.azw3"
+              ebook-convert "$file" "$output"
+            done
+          fi
       - name: Commit and Push changes
         run: |
           git config --local user.email "action@github.com"
